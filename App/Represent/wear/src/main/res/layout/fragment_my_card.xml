@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context="com.example.ninatran.represent.MyCard">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/picId"
+        android:layout_gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/detailView"
+        android:layout_above="@+id/detailView"
+        android:layout_toStartOf="@+id/title" />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#083D85"
+        android:id="@+id/title"
+        android:text="TITLE"
+        android:layout_gravity="right|center_vertical"
+        android:typeface="serif"
+        android:layout_below="@+id/party"
+        android:layout_alignStart="@+id/party" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#083D85"
+        android:id="@+id/party"
+        android:text="PARTY"
+        android:typeface="serif"
+        android:layout_gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/detailView"
+        android:layout_marginStart="47dp" />
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="View on phone"
+        android:textSize="10sp"
+        android:id="@+id/detailView"
+        android:textColor="@color/red"
+        android:typeface="serif"
+        android:layout_below="@+id/title"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
