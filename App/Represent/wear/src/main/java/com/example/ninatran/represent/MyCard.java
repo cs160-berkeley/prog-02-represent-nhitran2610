@@ -27,11 +27,23 @@ public class MyCard extends CardFragment {
     private static final String TITLE = "Title";
     private static final String PARTY = "Party";
     private static final String PICTUREID = "PictureID";
+    private static final String TERM_END = "Term_end";
+    private static final String REP_ID = "Rep_id";
+    private static final String COUNTY = "County";
+    private static final String STATE = "State";
+    private static final String OBAMA = "Obama";
+    private static final String ROMNEY = "Romney";
 
     // TODO: Rename and change types of parameters
     private String mTitle;
     private String mParty;
     private int mPic;
+    private String mTermEnd;
+    private String mRepID;
+    private String mCounty;
+    private String mState;
+    private String mObama;
+    private String mRomney;
 
 
     private OnFragmentInteractionListener mListener;
@@ -49,12 +61,19 @@ public class MyCard extends CardFragment {
      * @return A new instance of fragment MyCard.
      */
     // TODO: Rename and change types and number of parameters
-    public static MyCard newInstance(String title, String party, int pictureID) {
+    public static MyCard newInstance(String title, String party, int pictureID, String term_end, String rep_id, String county,
+                                        String state, String obama, String romney) {
         MyCard fragment = new MyCard();
         Bundle args = new Bundle();
         args.putString(TITLE, title);
         args.putString(PARTY, party);
         args.putInt(PICTUREID, pictureID);
+        args.putString(TERM_END, term_end);
+        args.putString(REP_ID, rep_id);
+        args.putString(COUNTY, county);
+        args.putString(STATE, state);
+        args.putString(OBAMA, obama);
+        args.putString(ROMNEY, romney);
         fragment.setArguments(args);
         return fragment;
     }
@@ -66,6 +85,12 @@ public class MyCard extends CardFragment {
             mTitle = getArguments().getString(TITLE);
             mParty = getArguments().getString(PARTY);
             mPic = getArguments().getInt(PICTUREID);
+            mTermEnd = getArguments().getString(TERM_END);
+            mRepID = getArguments().getString(REP_ID);
+            mCounty = getArguments().getString(COUNTY);
+            mState = getArguments().getString(STATE);
+            mObama = getArguments().getString(OBAMA);
+            mRomney = getArguments().getString(ROMNEY);
         }
     }
 
@@ -76,6 +101,15 @@ public class MyCard extends CardFragment {
         View layout;
         if (mTitle.equals("Vote")) {
             layout = inflater.inflate(R.layout.vote_main, container, false);
+            TextView s = (TextView) layout.findViewById(R.id.state);
+            TextView c = (TextView) layout.findViewById(R.id.county);
+            TextView o = (TextView) layout.findViewById(R.id.obama);
+            TextView r = (TextView) layout.findViewById(R.id.romney);
+            s.setText("State: " + mState);
+            c.setText("County: " + mCounty);
+            o.setText("Obama: " + mObama + "% Votes");
+            r.setText("Romney: " + mRomney +"% Votes");
+
         } else {
             layout = inflater.inflate(R.layout.fragment_my_card, container, false);
             TextView title = (TextView) layout.findViewById(R.id.title);
@@ -89,10 +123,16 @@ public class MyCard extends CardFragment {
             layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent trial = new Intent(getActivity(), WatchToPhoneService.class);
+                    Intent sentToPhone = new Intent(getActivity(), WatchToPhoneService.class);
 //                    startActivity(trial);
-                    trial.putExtra("REP_NAME", mTitle);
-                    getActivity().startService(trial);
+                    String sendMessage = mTitle + "|" + mParty + "|" + mTermEnd + "|" + mRepID;
+//                    sentToPhone.putExtra("title", mTitle);
+//                    sentToPhone.putExtra("party", mParty);
+//                    sentToPhone.putExtra("term_end", mTermEnd);
+//                    sentToPhone.putExtra("rep_id", mRepID);
+                    sentToPhone.putExtra("MSG", sendMessage);
+
+                    getActivity().startService(sentToPhone);
                 }
             });
         }

@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.util.Log;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.wearable.MessageApi;
@@ -16,13 +17,15 @@ import com.google.android.gms.wearable.Wearable;
  */
 public class PhoneToWatchService extends Service{
     private GoogleApiClient mApiClient;
+//    private static final String MAIN_ACTIVITY = "/start_activity";
+    private static final String WEAR_MESSAGE_PATH = "/message";
 
     @Override
     public void onCreate() {
         super.onCreate();
         //initialize the googleAPIClient for message passing
         mApiClient = new GoogleApiClient.Builder( this )
-                .addApi( Wearable.API )
+                .addApi(Wearable.API)
                 .addConnectionCallbacks(new GoogleApiClient.ConnectionCallbacks() {
                     @Override
                     public void onConnected(Bundle connectionHint) {
@@ -33,6 +36,8 @@ public class PhoneToWatchService extends Service{
                     }
                 })
                 .build();
+        // new thing
+//        mApiClient.connect();
     }
 
     @Override
@@ -44,16 +49,17 @@ public class PhoneToWatchService extends Service{
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Bundle extras = intent.getExtras();
-        final String zipCode = extras.getString("ZIP_CODE");
-
+        final String json = extras.getString("JSON");
+        Log.d("IN_PHONE", "json " + json);
         // Send the message with the cat name
         new Thread(new Runnable() {
             @Override
             public void run() {
                 //first, connect to the apiclient
                 mApiClient.connect();
-                //now that you're connected, send a massage with the cat name
-                sendMessage("/" + zipCode, zipCode);
+                //now that you're connected, send a massage with the zip code
+//                sendMessage("/" + zipCode, zipCode);
+                sendMessage(WEAR_MESSAGE_PATH, json);
             }
         }).start();
 

@@ -16,7 +16,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:id="@+id/imageView17"
-        android:src="@drawable/dianne"
+        android:src="@drawable/person"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sen. Dianne Feinstein"
-        android:id="@+id/textView14"
+        android:id="@+id/rep_title"
         android:layout_marginStart="29dp"
         android:typeface="serif"
         android:textColor="#083D85"
@@ -36,61 +36,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Party: Democrat"
-        android:id="@+id/textView15"
-        android:layout_below="@+id/textView14"
-        android:layout_alignStart="@+id/textView14"
+        android:id="@+id/rep_party"
         android:typeface="serif"
-        android:textColor="#040404" />
+        android:textColor="#040404"
+        android:layout_below="@+id/rep_title"
+        android:layout_alignStart="@+id/rep_title" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="End Date: N/A"
-        android:id="@+id/textView16"
-        android:layout_below="@+id/textView15"
-        android:layout_alignStart="@+id/textView15"
+        android:id="@+id/rep_termEnd"
         android:typeface="serif"
-        android:textColor="#FF040404" />
+        android:textColor="#FF040404"
+        android:layout_below="@+id/rep_party"
+        android:layout_alignStart="@+id/rep_party" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView17"
-        android:text="Senate Committee on Judiciary"
-        android:layout_below="@+id/textView16"
-        android:layout_alignStart="@+id/textView16"
-        android:typeface="serif"
-        android:textColor="#FF040404" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Bills:"
-        android:id="@+id/textView18"
-        android:layout_marginTop="33dp"
-        android:textColor="#083D85"
+        android:text="Committees:"
+        android:id="@+id/committee"
         android:layout_below="@+id/imageView17"
         android:layout_alignParentStart="true"
+        android:layout_marginTop="27dp"
+        android:textColor="#083D85"
         android:typeface="serif" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="S.2533 - Accelerated Revenue, Repayment, and Surface Water Storage Enhancement Act"
-        android:id="@+id/textView19"
-        android:layout_below="@+id/textView18"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="31dp"
-        android:textColor="#FF040404"
-        android:typeface="serif" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Date Introduced: 02/10/2016"
-        android:id="@+id/textView20"
-        android:layout_below="@+id/textView19"
+        android:text="New Text"
+        android:id="@+id/cmt1"
+        android:layout_below="@+id/committee"
         android:layout_alignParentStart="true"
         android:textColor="#FF040404"
         android:typeface="serif" />
@@ -98,21 +76,62 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="S.2442 - A bill to authorize the use of passenger facility charges at an airport previously associated with the airport at which the charges are collected."
-        android:id="@+id/textView21"
-        android:layout_below="@+id/textView20"
+        android:text="New Text"
+        android:id="@+id/cmt2"
+        android:layout_below="@+id/cmt1"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="38dp"
         android:textColor="#FF040404"
         android:typeface="serif" />
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="New Text"-->
+        <!--android:id="@+id/cmt3"-->
+        <!--android:layout_below="@+id/cmt2"-->
+        <!--android:layout_alignEnd="@+id/cmt2"-->
+        <!--android:typeface="serif"-->
+        <!--android:textColor="#FF040404" />-->
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Date Introduced: 01/12/2016"
-        android:id="@+id/textView22"
-        android:layout_below="@+id/textView21"
-        android:layout_alignParentStart="true"
+        android:text="Bills:"
+        android:id="@+id/bills"
+        android:textColor="#083D85"
+        android:typeface="serif"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/b1"
+        android:typeface="serif"
         android:textColor="#FF040404"
-        android:typeface="serif" />
+        android:layout_below="@+id/bills"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/b2"
+        android:textColor="#FF040404"
+        android:typeface="serif"
+        android:layout_below="@+id/b1"
+        android:layout_alignParentStart="true" />
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="New Text"-->
+        <!--android:id="@+id/b3"-->
+        <!--android:typeface="serif"-->
+        <!--android:textColor="#FF040404"-->
+        <!--android:layout_below="@+id/b2"-->
+        <!--android:layout_alignParentStart="true" />-->
+
+
 </RelativeLayout>

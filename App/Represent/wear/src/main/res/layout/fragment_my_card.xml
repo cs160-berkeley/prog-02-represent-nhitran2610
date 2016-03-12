@@ -13,26 +13,26 @@
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/detailView"
         android:layout_above="@+id/detailView"
-        android:layout_toStartOf="@+id/title" />
+        android:layout_toStartOf="@+id/party" />
 
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF040404"
+        android:id="@+id/party"
+        android:text="PARTY"
+        android:layout_gravity="right|center_vertical"
+        android:typeface="serif"
+        android:layout_below="@+id/title"
+        android:layout_alignStart="@+id/title" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#083D85"
         android:id="@+id/title"
         android:text="TITLE"
-        android:layout_gravity="right|center_vertical"
-        android:typeface="serif"
-        android:layout_below="@+id/party"
-        android:layout_alignStart="@+id/party" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#083D85"
-        android:id="@+id/party"
-        android:text="PARTY"
         android:typeface="serif"
         android:layout_gravity="center"
         android:layout_alignParentTop="true"
@@ -40,14 +40,14 @@
         android:layout_marginStart="47dp" />
     <Button
         android:layout_width="150dp"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         style="?android:attr/borderlessButtonStyle"
         android:text="View on phone"
         android:textSize="10sp"
         android:id="@+id/detailView"
         android:textColor="@color/red"
         android:typeface="serif"
-        android:layout_below="@+id/title"
+        android:layout_below="@+id/party"
         android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

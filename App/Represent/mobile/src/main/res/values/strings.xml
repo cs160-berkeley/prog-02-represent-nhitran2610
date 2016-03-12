@@ -5,4 +5,7 @@
     <string name="title_activity_detail_view">DetailView</string>
     <string name="title_activity_detail_view2">DetailView2</string>
     <string name="title_activity_detail_view3">DetailView3</string>
+    <string name="title_activity_congress_view">CongressView</string>
+    <string name="title_activity_current_location">CurrentLocation</string>
+    <string name="title_activity_gps">GPSActivity</string>
 </resources>

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ninatran.represent">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -36,13 +39,39 @@
         <activity
             android:name=".DetailView3"
             android:label="@string/title_activity_detail_view3"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <service android:name=".PhoneListenerService"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <service
+            android:name=".PhoneListenerService"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
             </intent-filter>
         </service>
+
+
+
+        <activity
+            android:name=".CongressView"
+            android:label="@string/title_activity_congress_view"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <meta-data
+            android:name="com.google.android.geo.AIzaSyCAPOQZo4jhZeM0CEoNJ2MQy7kC04pxtdY"
+            android:value="AIzaSyCAPOQZo4jhZeM0CEoNJ2MQy7kC04pxtdY" />
+
+        <activity
+            android:name=".GPSActivity"
+            android:label="@string/title_activity_gps"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
+        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>

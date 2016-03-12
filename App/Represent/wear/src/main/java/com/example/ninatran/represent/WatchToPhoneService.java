@@ -21,7 +21,8 @@ import java.util.List;
 public class WatchToPhoneService extends Service implements GoogleApiClient.ConnectionCallbacks {
     private GoogleApiClient mWatchApiClient;
     private List<Node> nodes = new ArrayList<>();
-    private String repName;
+    private String message;
+    private String PHONE_MESSAGE_PATH = "/message";
     @Override
     public void onCreate() {
         super.onCreate();
@@ -41,7 +42,7 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Bundle extras = intent.getExtras();
-        repName = extras.getString("REP_NAME");
+        message = extras.getString("MSG");
 
         // Send the message with the Representative name
         new Thread(new Runnable() {
@@ -50,8 +51,8 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
                 //first, connect to the apiclient
                 mWatchApiClient.connect();
                 //now that you're connected, send a massage with the Representative name
-                sendMessage("/" + repName, repName);
-                Log.d("sendRep", "attempting to send message "+ repName);
+                sendMessage(PHONE_MESSAGE_PATH, message);
+                Log.d("sendRep", "attempting to send message "+ message);
             }
         }).start();
 

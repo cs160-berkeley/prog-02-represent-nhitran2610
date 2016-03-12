@@ -30,8 +30,10 @@
 
         <activity
             android:name=".CongressActivity"
-            android:label="@string/title_activity_congress"></activity>
+            android:label="@string/title_activity_congress" />
+
         <service android:name=".WatchToPhoneService" />
+
     </application>
 
 </manifest>
